@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site para Dentistas</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#08203E;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3,h4{font-family:'Sora','Plus Jakarta Sans',sans-serif;letter-spacing:-0.02em}
+a{color:#1560BD;text-decoration:none}a:hover{color:#0B3C7A}
+html{scroll-behavior:smooth}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+details[open] .faq-ic{transform:rotate(45deg)}
+.faq-ic{transition:transform .2s ease}
+@media (max-width:820px){.hide-m{display:none !important}}
+nav.hide-m a{position:relative;padding:6px 0}
+nav.hide-m a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:#1560BD;border-radius:2px;transition:width .25s ease}
+nav.hide-m a:hover::after{width:100%}
+a[href="#agendar"]{transition:transform .2s ease,box-shadow .2s ease}
+a[href="#agendar"]:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(8,32,62,.28)}
+.card{transition:transform .28s ease,box-shadow .28s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(8,32,62,.22)}
+.ico{transition:transform .3s ease}
+.card:hover .ico{transform:rotate(-8deg) scale(1.1)}
+@keyframes fadeUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+.fu{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.float{animation:float 4.5s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(18px,-22px) rotate(8deg)}}
+.drift{animation:drift 14s ease-in-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,96,189,.5)}70%{box-shadow:0 0 0 10px rgba(21,96,189,0)}100%{box-shadow:0 0 0 0 rgba(21,96,189,0)}}
+.pulse{animation:pulse 2s ease-out infinite}
+@keyframes hl{to{background-size:100% 12px}}
+.hl{background:linear-gradient(#9CCBFB,#9CCBFB) no-repeat 0 90%/0% 12px;animation:hl .9s .9s ease-out forwards}
+@keyframes waveMove{to{transform:translateX(-25%)}}
+.wave{animation:waveMove 16s linear infinite}
+.wave2{animation:waveMove 26s linear infinite reverse}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marq{animation:marq 38s linear infinite}
+.marq:hover{animation-play-state:paused}
+@keyframes twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.8);opacity:.6}}
+.stars svg{transform-box:fill-box;transform-origin:center;animation:twinkle 2.4s ease-in-out infinite}
+.stars svg:nth-child(2){animation-delay:.2s}
+.stars svg:nth-child(3){animation-delay:.4s}
+.stars svg:nth-child(4){animation-delay:.6s}
+.stars svg:nth-child(5){animation-delay:.8s}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(91,166,245,0)}50%{box-shadow:0 0 0 12px rgba(91,166,245,.22)}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes faqIn{from{opacity:0;translate:0 -8px}to{opacity:1;translate:0 0}}
+details[open] p{animation:faqIn .3s ease both}
+@keyframes rv{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+@supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 55%}}
+@keyframes hop{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1.5deg)}}
+.dent{transform-origin:200px 380px;animation:hop 1.2s ease-in-out infinite}
+@keyframes chomp{0%{transform:translateY(0)}8%{transform:translateY(24px)}16%{transform:translateY(0)}24%{transform:translateY(24px)}32%,100%{transform:translateY(0)}}
+.jaw{animation:chomp 2.4s ease-in-out infinite}
+@keyframes step{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(-10deg)}}
+.foot{transform-box:fill-box;transform-origin:50% 0}
+.foot-l{animation:step 1.2s ease-in-out infinite}
+.foot-r{animation:step 1.2s ease-in-out infinite .6s}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+@keyframes keyturn{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.2)}}
+.key{transform-box:fill-box;transform-origin:center;animation:keyturn 1.6s ease-in-out infinite}
+@keyframes spark{0%,100%{transform:scale(.2) rotate(0deg);opacity:0}50%{transform:scale(1) rotate(45deg);opacity:1}}
+.spark{transform-box:fill-box;transform-origin:center;animation:spark 2.4s ease-in-out infinite}
+@keyframes shadowPulse{0%,100%{transform:scale(1);opacity:.25}50%{transform:scale(.8);opacity:.14}}
+.shadow{transform-box:fill-box;transform-origin:center;animation:shadowPulse 1.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+
+<div style="width:100%;background:#FFFFFF;color:#08203E;font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+
+<!-- BARRA DE INFORMAÇÕES -->
+<div style="background:#061A33;color:#CFE3FA;font-size:13px">
+<div style="max-width:1200px;margin:0 auto;padding:10px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px">
+<div style="display:flex;align-items:center;gap:8px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>[HORÁRIO DE ATENDIMENTO — ex.: Seg a Sex, 8h às 18h]</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px">
+<span style="display:flex;align-items:center;gap:8px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg><span>[TELEFONE / WHATSAPP]</span></span>
+<span style="display:flex;align-items:center;gap:8px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.8"></circle></svg><span>[@INSTAGRAM]</span></span>
+</div>
+</div>
+</div>
+
+<!-- MENU -->
+<div style="background:#FFFFFF;border-bottom:1px solid #DCEBFB">
+<div style="max-width:1200px;margin:0 auto;padding:16px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+<a href="#inicio" style="display:flex;align-items:center;gap:12px;color:#08203E">
+<span style="width:46px;height:46px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#08203E">[NOME DA CLÍNICA]</span><span style="font-size:12px;color:#44586F">Odontologia · [CRO-UF 00000]</span></span>
+</a>
+<nav class="hide-m" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;font-size:15px;font-weight:600">
+<a href="#inicio" style="color:#08203E">Início</a>
+<a href="#sobre" style="color:#08203E">Sobre</a>
+<a href="#tratamentos" style="color:#08203E">Tratamentos</a>
+<a href="#equipe" style="color:#08203E">Equipe</a>
+<a href="#resultados" style="color:#08203E">Resultados</a>
+<a href="#valores" style="color:#08203E">Valores</a>
+<a href="#faq" style="color:#08203E">Dúvidas</a>
+</nav>
+<a href="#agendar" style="display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;background:#1560BD;color:#FFFFFF;font-weight:700;font-size:15px">Agendar consulta</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section id="inicio" style="background:#E6F1FD;padding:80px 0 96px;position:relative;overflow:hidden;isolation:isolate">
+<div class="drift" aria-hidden="true" style="position:absolute;z-index:-1;left:-160px;top:-140px;width:460px;height:460px;border-radius:50%;background:#CFE3FA;opacity:.7"></div>
+<div class="drift" aria-hidden="true" style="position:absolute;z-index:-1;right:-120px;bottom:60px;width:340px;height:340px;border-radius:50%;background:#D5E7FB;animation-delay:-6s"></div>
+<svg class="i drift" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;z-index:-1;left:46%;top:36px;width:110px;height:110px;color:#8DB8E8;opacity:.4;stroke-width:1.2;animation-delay:-3s"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg>
+<span class="float" aria-hidden="true" style="position:absolute;z-index:-1;left:5%;top:58%;width:18px;height:18px;border-radius:50%;border:3px solid #5E9BE0;opacity:.6"></span>
+<span class="float" aria-hidden="true" style="position:absolute;z-index:-1;left:44%;bottom:130px;width:12px;height:12px;border-radius:50%;background:#5E9BE0;opacity:.5;animation-delay:-2s"></span>
+<span class="float" aria-hidden="true" style="position:absolute;z-index:-1;right:8%;top:90px;width:24px;height:24px;border-radius:50%;border:3px solid #1560BD;opacity:.35;animation-delay:-1.4s"></span>
+<div aria-hidden="true" style="position:absolute;z-index:-1;left:0;right:0;bottom:-1px;height:72px;overflow:hidden;pointer-events:none">
+<svg class="wave2" viewBox="0 0 2880 80" preserveAspectRatio="none" style="position:absolute;left:0;bottom:0;width:200%;height:100%"><path d="M0 40 Q180 0 360 40 T720 40 T1080 40 T1440 40 T1800 40 T2160 40 T2520 40 T2880 40 V80 H0Z" fill="#1560BD" opacity=".35"></path></svg>
+<svg class="wave" viewBox="0 0 2880 80" preserveAspectRatio="none" style="position:absolute;left:0;bottom:0;width:200%;height:100%"><path d="M0 54 Q180 18 360 54 T720 54 T1080 54 T1440 54 T1800 54 T2160 54 T2520 54 T2880 54 V80 H0Z" fill="#08203E"></path></svg>
+</div>
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:56px">
+<div style="flex:1 1 480px;display:flex;flex-direction:column;align-items:flex-start;gap:24px">
+<span class="fu" style="background:#FFFFFF;color:#1560BD;padding:8px 16px;border-radius:999px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:10px"><span class="pulse" aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#1560BD;display:inline-block"></span>[CIDADE/UF] · Odontologia completa</span>
+<h1 class="fu" style="font-size:clamp(36px,5.2vw,64px);line-height:1.08;font-weight:700;color:#08203E;animation-delay:.12s">Cuidamos do seu <span class="hl">sorriso</span> com atenção em cada detalhe.</h1>
+<p class="fu" style="font-size:19px;line-height:1.7;color:#44586F;max-width:560px;animation-delay:.24s">Avaliação completa, plano de tratamento claro e um atendimento acolhedor — do check-up de rotina às reabilitações mais completas.</p>
+<div class="fu" style="display:flex;flex-wrap:wrap;gap:14px;animation-delay:.36s">
+<a href="#agendar" style="display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;background:#1560BD;color:#FFFFFF;font-weight:700;font-size:16px">Agendar consulta</a>
+<a href="#agendar" style="display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;border:2px solid #1560BD;color:#1560BD;font-weight:700;font-size:16px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"></path></svg>Chamar no WhatsApp</a>
+</div>
+<div class="fu" style="display:flex;flex-direction:column;gap:12px;margin-top:8px;color:#08203E;font-size:15px;font-weight:600;animation-delay:.48s">
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Avaliação completa na primeira consulta</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Plano de tratamento explicado passo a passo</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>[FORMAS DE PAGAMENTO E CONVÊNIOS ATENDIDOS]</span>
+</div>
+</div>
+<div class="fu" style="flex:1 1 400px;position:relative;padding-bottom:28px;animation-delay:.25s">
+<div style="background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#0B3C7A;text-align:center;padding:24px;min-height:500px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:44px;height:44px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:16px">[ FOTO PRINCIPAL ]</div>
+<div style="font-size:13px;max-width:240px;line-height:1.5">Dentista sorrindo ou paciente atendido · sugestão 800×1000 px</div>
+</div>
+<div style="position:absolute;top:-64px;right:-28px;width:min(310px,64%);pointer-events:none;z-index:2">
+<svg viewBox="0 0 400 420" width="100%" role="img" aria-label="Dentadura animada sorrindo" style="display:block;overflow:visible">
+<defs><linearGradient id="toothG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#D6E8FB"></stop></linearGradient></defs>
+<ellipse class="shadow" cx="200" cy="406" rx="112" ry="9" fill="#08203E"></ellipse>
+<g class="dent">
+<rect x="58" y="138" width="284" height="150" rx="44" fill="#0A1A33"></rect>
+<g fill="url(#toothG)" stroke="#08203E" stroke-width="4" stroke-linejoin="round">
+<rect x="74" y="130" width="36" height="54" rx="12"></rect>
+<rect x="110" y="130" width="36" height="62" rx="12"></rect>
+<rect x="146" y="130" width="36" height="68" rx="12"></rect>
+<rect x="182" y="130" width="36" height="72" rx="12"></rect>
+<rect x="218" y="130" width="36" height="68" rx="12"></rect>
+<rect x="254" y="130" width="36" height="62" rx="12"></rect>
+<rect x="290" y="130" width="36" height="54" rx="12"></rect>
+</g>
+<path d="M50 118 Q50 58 200 58 Q350 58 350 118 L350 136 Q350 146 340 146 L60 146 Q50 146 50 136 Z" fill="#8EC3F7" stroke="#08203E" stroke-width="5" stroke-linejoin="round"></path>
+<path d="M82 92 Q108 70 150 66" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".6"></path>
+<g class="eye"><circle cx="150" cy="100" r="13" fill="#FFFFFF" stroke="#08203E" stroke-width="4"></circle><circle cx="153" cy="102" r="5.5" fill="#08203E"></circle></g>
+<g class="eye"><circle cx="250" cy="100" r="13" fill="#FFFFFF" stroke="#08203E" stroke-width="4"></circle><circle cx="253" cy="102" r="5.5" fill="#08203E"></circle></g>
+<ellipse cx="98" cy="124" rx="14" ry="8" fill="#1560BD" opacity=".35"></ellipse>
+<ellipse cx="302" cy="124" rx="14" ry="8" fill="#1560BD" opacity=".35"></ellipse>
+<g transform="translate(366 100)"><g class="key"><path d="M-6 -4 H6 V24 H-6Z" fill="#1560BD" stroke="#08203E" stroke-width="4" stroke-linejoin="round"></path><ellipse cx="0" cy="-16" rx="20" ry="13" fill="#5BA6F5" stroke="#08203E" stroke-width="4"></ellipse></g></g>
+<g class="jaw">
+<g class="foot foot-l"><rect x="123" y="316" width="10" height="24" rx="5" fill="#08203E"></rect><rect x="96" y="336" width="62" height="28" rx="14" fill="#1560BD" stroke="#08203E" stroke-width="4"></rect><path d="M108 346 H138" stroke="#FFFFFF" opacity=".5" stroke-width="4" stroke-linecap="round"></path></g>
+<g class="foot foot-r"><rect x="267" y="316" width="10" height="24" rx="5" fill="#08203E"></rect><rect x="242" y="336" width="62" height="28" rx="14" fill="#1560BD" stroke="#08203E" stroke-width="4"></rect><path d="M254 346 H284" stroke="#FFFFFF" opacity=".5" stroke-width="4" stroke-linecap="round"></path></g>
+<g fill="url(#toothG)" stroke="#08203E" stroke-width="4" stroke-linejoin="round">
+<rect x="74" y="184" width="36" height="66" rx="12"></rect>
+<rect x="110" y="192" width="36" height="58" rx="12"></rect>
+<rect x="146" y="198" width="36" height="52" rx="12"></rect>
+<rect x="182" y="202" width="36" height="48" rx="12"></rect>
+<rect x="218" y="198" width="36" height="52" rx="12"></rect>
+<rect x="254" y="192" width="36" height="58" rx="12"></rect>
+<rect x="290" y="184" width="36" height="66" rx="12"></rect>
+</g>
+<path d="M50 236 Q50 226 60 226 L340 226 Q350 226 350 236 L350 262 Q350 322 200 322 Q50 322 50 262 Z" fill="#8EC3F7" stroke="#08203E" stroke-width="5" stroke-linejoin="round"></path>
+<path d="M84 272 Q96 296 128 304" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".6"></path>
+</g>
+</g>
+<g transform="translate(40 96)"><path class="spark" d="M0 -15 Q0 0 15 0 Q0 0 0 15 Q0 0 -15 0 Q0 0 0 -15Z" fill="#1560BD"></path></g>
+<g transform="translate(372 214)"><path class="spark" style="animation-delay:.8s" d="M0 -12 Q0 0 12 0 Q0 0 0 12 Q0 0 -12 0 Q0 0 0 -12Z" fill="#5BA6F5"></path></g>
+<g transform="translate(34 330)"><path class="spark" style="animation-delay:1.4s" d="M0 -18 Q0 0 18 0 Q0 0 0 18 Q0 0 -18 0 Q0 0 0 -18Z" fill="#5BA6F5"></path></g>
+<g transform="translate(330 30)"><path class="spark" style="animation-delay:.4s" d="M0 -12 Q0 0 12 0 Q0 0 0 12 Q0 0 -12 0 Q0 0 0 -12Z" fill="#1560BD"></path></g>
+</svg>
+</div>
+<div class="float" style="position:absolute;left:-12px;bottom:0;background:#FFFFFF;border-radius:20px;padding:16px 22px;box-shadow:0 12px 32px rgba(8,32,62,.14);display:flex;align-items:center;gap:14px">
+<span style="width:46px;height:46px;border-radius:14px;background:#E6F1FD;color:#1560BD;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:#08203E">[0,0] no Google</span><span style="font-size:13px;color:#44586F">[000] avaliações de pacientes</span></span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAIXA ANIMADA -->
+<div style="background:#08203E;overflow:hidden;padding:22px 0">
+<div class="marq" style="display:flex;width:max-content">
+<div style="display:flex;align-items:center;gap:36px;padding-right:36px;flex:none;color:#FFFFFF;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;white-space:nowrap">
+<span>Clínica geral</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Clareamento dental</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Ortodontia</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Implantes dentários</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Lentes e facetas</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Endodontia</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Odontopediatria</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Cirurgia oral</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Harmonização orofacial</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+</div>
+<div aria-hidden="true" style="display:flex;align-items:center;gap:36px;padding-right:36px;flex:none;color:#FFFFFF;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;white-space:nowrap">
+<span>Clínica geral</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Clareamento dental</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Ortodontia</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Implantes dentários</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Lentes e facetas</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Endodontia</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Odontopediatria</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Cirurgia oral</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+<span>Harmonização orofacial</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:#5BA6F5;stroke:none"><path d="M12 3c.6 5 3 7.4 9 9-6 1.6-8.4 4-9 9-.6-5-3-7.4-9-9 6-1.6 8.4-4 9-9z"></path></svg>
+</div>
+</div>
+</div>
+
+<!-- NÚMEROS -->
+<section style="background:#1560BD;padding:56px 0">
+<div class="rv" style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:32px 24px;text-align:center">
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:44px;color:#FFFFFF">[+0000]</span><span style="font-size:15px;color:#DCEBFB">pacientes atendidos</span></div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:44px;color:#FFFFFF">[00]</span><span style="font-size:15px;color:#DCEBFB">anos de experiência</span></div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:44px;color:#FFFFFF">[0,0]</span><span style="font-size:15px;color:#DCEBFB">avaliação média no Google</span></div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:44px;color:#FFFFFF">[0000]</span><span style="font-size:15px;color:#DCEBFB">procedimentos realizados</span></div>
+</div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" style="background:#FFFFFF;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:64px">
+<div class="rv" style="flex:1 1 380px">
+<div style="background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#0B3C7A;text-align:center;padding:24px;min-height:520px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:44px;height:44px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:16px">[ FOTO DO(A) DENTISTA ]</div>
+<div style="font-size:13px;max-width:240px;line-height:1.5">Retrato profissional · sugestão 800×1000 px</div>
+</div>
+</div>
+<div class="rv" style="flex:1 1 440px;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Sobre a clínica</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">Odontologia feita com escuta, técnica e transparência.</h2>
+<p style="font-size:17px;line-height:1.7;color:#44586F">[Conte aqui a história da clínica e do(a) dentista: formação, especializações, filosofia de atendimento e o que torna o seu cuidado único.]</p>
+<p style="font-size:17px;line-height:1.7;color:#44586F">Cada tratamento começa por entender o que você precisa e o que você deseja. Explicamos as opções, os prazos e os cuidados para que você decida com segurança.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:4px">
+<span style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Avaliação individualizada</span>
+<span style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Técnicas e materiais atuais</span>
+<span style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Biossegurança em todas as etapas</span>
+<span style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Acompanhamento após o tratamento</span>
+</div>
+<div style="background:#E6F1FD;border-radius:20px;padding:20px 24px;display:flex;flex-direction:column;gap:4px;margin-top:8px;width:100%;box-sizing:border-box">
+<span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#08203E">[Dr./Dra. NOME COMPLETO]</span>
+<span style="font-size:15px;color:#44586F">Cirurgião(ã)-dentista · [CRO-UF 00000]</span>
+<span style="font-size:15px;color:#44586F">[Especializações, pós-graduações e cursos]</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section id="tratamentos" style="background:#08203E;padding:96px 0;position:relative;overflow:hidden;isolation:isolate">
+<svg class="i drift" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;z-index:-1;right:-60px;top:40px;width:340px;height:340px;color:#5BA6F5;opacity:.1;stroke-width:.6"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg>
+<svg class="i drift" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;z-index:-1;left:-80px;bottom:-40px;width:300px;height:300px;color:#5BA6F5;opacity:.1;stroke-width:.6;animation-delay:-5s"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg>
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5BA6F5">Tratamentos</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#FFFFFF">Tudo o que o seu sorriso precisa, em um só lugar.</h2>
+<p style="font-size:17px;line-height:1.7;color:#CFE3FA">Da prevenção à reabilitação oral e à estética do sorriso. Edite, duplique ou remova os cards conforme os serviços da sua clínica.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Clínica geral e prevenção</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Check-ups, limpeza e profilaxia, aplicação de flúor e orientação de higiene para manter a saúde bucal em dia.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Clareamento dental</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Clareamento em consultório ou supervisionado, com avaliação prévia para escolher o método mais adequado.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><rect x="3" y="8.5" width="5" height="7" rx="1.5"></rect><rect x="9.5" y="8.5" width="5" height="7" rx="1.5"></rect><rect x="16" y="8.5" width="5" height="7" rx="1.5"></rect><path d="M8 12h1.5M14.5 12H16"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Ortodontia</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Aparelhos fixos e alinhadores para corrigir o posicionamento dos dentes e a mordida.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M7 3.5h10c.8 0 1.2.8.8 1.5L16 8H8L6.2 5c-.4-.7 0-1.5.8-1.5z"></path><path d="M9 8l1 4M15 8l-1 4M10 12h4M10.5 12l.5 3.5M13.5 12L13 15.5M11 15.5l.4 5.5h1.2l.4-5.5"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Implantes dentários</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Reposição de dentes ausentes com planejamento cuidadoso para devolver função e estética.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><circle cx="12" cy="12" r="9"></circle><path d="M8 14c1 1.5 2.4 2.2 4 2.2s3-.7 4-2.2"></path><path d="M9 9.5v.5M15 9.5v.5"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Lentes e facetas</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Reabilitação estética para ajustar forma, cor e alinhamento, com planejamento do sorriso.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path><path d="M12 10v5"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Endodontia (canal)</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Tratamento do canal para aliviar a dor e preservar o dente natural.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Odontopediatria</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Atendimento acolhedor para crianças, com foco em prevenção e na construção de bons hábitos.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 5v14M5 12h14"></path><circle cx="12" cy="12" r="9"></circle></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Cirurgia oral</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Extrações, inclusive de sisos, e pequenos procedimentos cirúrgicos com planejamento e acompanhamento.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+<div class="card rv" style="flex:1 1 320px;background:#0E2F57;border:1px solid #1D4A82;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+<span class="ico" style="width:54px;height:54px;border-radius:16px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M12 3c4.4 0 7 3.2 7 7.5 0 3.8-2 7-7 10.5-5-3.5-7-6.7-7-10.5C5 6.2 7.6 3 12 3z"></path><path d="M9 10.5h.01M15 10.5h.01M9.5 14.5c.7.7 1.5 1 2.5 1s1.8-.3 2.5-1"></path></svg></span>
+<h3 style="font-size:21px;color:#FFFFFF">Harmonização orofacial</h3>
+<p style="font-size:15px;line-height:1.65;color:#CFE3FA">Procedimentos para equilíbrio e estética do rosto, indicados após avaliação individual.</p>
+<span style="font-size:14px;font-weight:700;color:#8CC2FA">A partir de R$ [VALOR]</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section style="background:#F1F7FE;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Como funciona</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">Seu atendimento em quatro passos simples.</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<div class="card rv" style="flex:1 1 240px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+<span style="width:48px;height:48px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:20px">1</span>
+<h3 style="font-size:20px;color:#08203E">Agendamento</h3>
+<p style="font-size:15px;line-height:1.65;color:#44586F">Escolha o melhor dia e horário pelo WhatsApp, telefone ou formulário.</p>
+</div>
+<div class="card rv" style="flex:1 1 240px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+<span style="width:48px;height:48px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:20px">2</span>
+<h3 style="font-size:20px;color:#08203E">Avaliação</h3>
+<p style="font-size:15px;line-height:1.65;color:#44586F">Exame clínico e conversa para entender suas queixas e seus objetivos.</p>
+</div>
+<div class="card rv" style="flex:1 1 240px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+<span style="width:48px;height:48px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:20px">3</span>
+<h3 style="font-size:20px;color:#08203E">Plano de tratamento</h3>
+<p style="font-size:15px;line-height:1.65;color:#44586F">Apresentamos as opções, os prazos e o investimento, com tudo explicado.</p>
+</div>
+<div class="card rv" style="flex:1 1 240px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+<span style="width:48px;height:48px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:20px">4</span>
+<h3 style="font-size:20px;color:#08203E">Tratamento e retorno</h3>
+<p style="font-size:15px;line-height:1.65;color:#44586F">Realizamos o tratamento e acompanhamos você com revisões periódicas.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DIFERENCIAIS E ESTRUTURA -->
+<section style="background:#0B3C7A;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:64px">
+<div class="rv" style="flex:1 1 440px;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9CCBFB">Nossa estrutura</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#FFFFFF">Um ambiente pensado para o seu conforto.</h2>
+<p style="font-size:17px;line-height:1.7;color:#DCEBFB">[Descreva aqui a estrutura da clínica: equipamentos, tecnologia, salas e o que o paciente encontra ao chegar.]</p>
+<div style="display:flex;flex-direction:column;gap:18px;width:100%;margin-top:8px">
+<div style="display:flex;align-items:flex-start;gap:14px"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:17px;color:#FFFFFF">Esterilização e biossegurança</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">Protocolos rigorosos de higiene em cada atendimento.</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:17px;color:#FFFFFF">Equipamentos e técnicas atualizados</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[Cite aqui seus equipamentos: ex.: radiografia digital, scanner intraoral.]</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:17px;color:#FFFFFF">Ambiente acolhedor</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">Espaço tranquilo para você se sentir à vontade desde a chegada.</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:17px;color:#FFFFFF">Acompanhamento próximo</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">Retornos e orientações para manter o resultado do tratamento.</span></span></div>
+</div>
+</div>
+<div style="flex:1 1 420px;display:flex;flex-wrap:wrap;gap:16px">
+<div style="flex:1 1 calc(50% - 16px);background:#0F2F57;border:2px dashed #5BA6F5;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFE3FA;text-align:center;padding:20px;min-height:220px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:36px;height:36px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DA CLÍNICA 1 ]</div>
+<div style="font-size:12px">Recepção</div>
+</div>
+<div style="flex:1 1 calc(50% - 16px);background:#0F2F57;border:2px dashed #5BA6F5;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFE3FA;text-align:center;padding:20px;min-height:220px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:36px;height:36px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DA CLÍNICA 2 ]</div>
+<div style="font-size:12px">Consultório</div>
+</div>
+<div style="flex:1 1 calc(50% - 16px);background:#0F2F57;border:2px dashed #5BA6F5;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFE3FA;text-align:center;padding:20px;min-height:220px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:36px;height:36px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DA CLÍNICA 3 ]</div>
+<div style="font-size:12px">Sala de espera</div>
+</div>
+<div style="flex:1 1 calc(50% - 16px);background:#0F2F57;border:2px dashed #5BA6F5;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFE3FA;text-align:center;padding:20px;min-height:220px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:36px;height:36px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DA CLÍNICA 4 ]</div>
+<div style="font-size:12px">Fachada</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe" style="background:#FFFFFF;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Nossa equipe</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">Profissionais dedicados ao seu sorriso.</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:28px">
+<div class="card rv" style="flex:1 1 300px;display:flex;flex-direction:column;gap:18px">
+<div style="background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:24px;min-height:340px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:38px;height:38px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:15px">[ FOTO ]</div>
+<div style="font-size:12px">Sugestão 600×800 px</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<h3 style="font-size:21px;color:#08203E">[Dr./Dra. NOME COMPLETO]</h3>
+<span style="font-size:15px;font-weight:700;color:#1560BD">[ESPECIALIDADE]</span>
+<span style="font-size:14px;color:#44586F">[CRO-UF 00000]</span>
+<p style="font-size:15px;line-height:1.65;color:#44586F;margin-top:6px">[Mini bio: formação, especializações e áreas de atuação.]</p>
+</div>
+</div>
+<div class="card rv" style="flex:1 1 300px;display:flex;flex-direction:column;gap:18px">
+<div style="background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:24px;min-height:340px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:38px;height:38px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:15px">[ FOTO ]</div>
+<div style="font-size:12px">Sugestão 600×800 px</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<h3 style="font-size:21px;color:#08203E">[Dr./Dra. NOME COMPLETO]</h3>
+<span style="font-size:15px;font-weight:700;color:#1560BD">[ESPECIALIDADE]</span>
+<span style="font-size:14px;color:#44586F">[CRO-UF 00000]</span>
+<p style="font-size:15px;line-height:1.65;color:#44586F;margin-top:6px">[Mini bio: formação, especializações e áreas de atuação.]</p>
+</div>
+</div>
+<div class="card rv" style="flex:1 1 300px;display:flex;flex-direction:column;gap:18px">
+<div style="background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:24px;min-height:340px;box-sizing:border-box">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:38px;height:38px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:15px">[ FOTO ]</div>
+<div style="font-size:12px">Sugestão 600×800 px</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<h3 style="font-size:21px;color:#08203E">[NOME DA ASSISTENTE / RECEPÇÃO]</h3>
+<span style="font-size:15px;font-weight:700;color:#1560BD">[FUNÇÃO NA EQUIPE]</span>
+<p style="font-size:15px;line-height:1.65;color:#44586F;margin-top:6px">[Uma frase sobre o papel dessa pessoa no atendimento.]</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section id="resultados" style="background:#E6F1FD;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Resultados</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">Sorrisos que ajudamos a transformar.</h2>
+<p style="font-size:17px;line-height:1.7;color:#44586F">Cada caso é único: os resultados variam de pessoa para pessoa.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:28px">
+<div class="card rv" style="flex:1 1 480px;background:#FFFFFF;border-radius:28px;padding:20px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<div style="flex:1 1 200px;background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:20px;min-height:260px;box-sizing:border-box">
+<span style="background:#0B3C7A;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 14px;border-radius:999px">ANTES</span>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO ANTES ]</div>
+</div>
+<div style="flex:1 1 200px;background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:20px;min-height:260px;box-sizing:border-box">
+<span style="background:#1560BD;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 14px;border-radius:999px">DEPOIS</span>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DEPOIS ]</div>
+</div>
+</div>
+<div style="padding:4px 8px 8px;display:flex;flex-direction:column;gap:4px">
+<span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#08203E">[Tratamento realizado]</span>
+<span style="font-size:14px;color:#44586F">[Duração do tratamento · número de sessões]</span>
+</div>
+</div>
+<div class="card rv" style="flex:1 1 480px;background:#FFFFFF;border-radius:28px;padding:20px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<div style="flex:1 1 200px;background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:20px;min-height:260px;box-sizing:border-box">
+<span style="background:#0B3C7A;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 14px;border-radius:999px">ANTES</span>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO ANTES ]</div>
+</div>
+<div style="flex:1 1 200px;background:#CFE3FA;border:2px dashed #5E9BE0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#0B3C7A;text-align:center;padding:20px;min-height:260px;box-sizing:border-box">
+<span style="background:#1560BD;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 14px;border-radius:999px">DEPOIS</span>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px"><rect x="3" y="4.5" width="18" height="15" rx="3"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M4 17.5l5-4.5 4 3.5 3-2.5 4 3.5"></path></svg>
+<div style="font-weight:700;font-size:14px">[ FOTO DEPOIS ]</div>
+</div>
+</div>
+<div style="padding:4px 8px 8px;display:flex;flex-direction:column;gap:4px">
+<span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#08203E">[Tratamento realizado]</span>
+<span style="font-size:14px;color:#44586F">[Duração do tratamento · número de sessões]</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- VALORES -->
+<section id="valores" style="background:#1560BD;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DCEBFB">Valores</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#FFFFFF">Investimento no seu sorriso.</h2>
+<p style="font-size:17px;line-height:1.7;color:#DCEBFB">Os valores variam conforme cada caso. Veja uma referência e agende a sua avaliação.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+
+<div class="card rv" style="flex:1 1 300px;background:#FFFFFF;border-radius:28px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+<h3 style="font-size:22px;color:#08203E">Avaliação inicial</h3>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:40px;color:#1560BD">R$ [VALOR]</span><span style="font-size:14px;color:#44586F">[por consulta / à vista]</span></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#08203E;flex:1">
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Exame clínico completo</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Orientação de higiene</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Plano de tratamento</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>[Outro item incluído]</span>
+</div>
+<a href="#agendar" style="display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;border:2px solid #1560BD;color:#1560BD;font-weight:700;font-size:15px">Agendar</a>
+</div>
+
+<div class="card rv glow" style="flex:1 1 300px;background:#08203E;border-radius:28px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><h3 style="font-size:22px;color:#FFFFFF">Limpeza e prevenção</h3><span style="background:#5BA6F5;color:#08203E;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px">[MAIS PROCURADO]</span></div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:40px;color:#FFFFFF">R$ [VALOR]</span><span style="font-size:14px;color:#CFE3FA">[por sessão / à vista]</span></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#FFFFFF;flex:1">
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#5BA6F5"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Profilaxia (limpeza)</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#5BA6F5"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Aplicação de flúor</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#5BA6F5"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Orientação de higiene</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#5BA6F5"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>[Outro item incluído]</span>
+</div>
+<a href="#agendar" style="display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;background:#FFFFFF;color:#08203E;font-weight:700;font-size:15px">Agendar</a>
+</div>
+
+<div class="card rv" style="flex:1 1 300px;background:#FFFFFF;border-radius:28px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+<h3 style="font-size:22px;color:#08203E">Clareamento dental</h3>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:40px;color:#1560BD">R$ [VALOR]</span><span style="font-size:14px;color:#44586F">[por tratamento / à vista]</span></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#08203E;flex:1">
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Avaliação prévia</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>[Método: consultório ou supervisionado]</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Orientações de cuidados</span>
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>[Outro item incluído]</span>
+</div>
+<a href="#agendar" style="display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;border:2px solid #1560BD;color:#1560BD;font-weight:700;font-size:15px">Agendar</a>
+</div>
+
+</div>
+<div style="margin-top:36px;background:rgba(255,255,255,.14);border-radius:20px;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 28px;color:#FFFFFF;font-size:16px;font-weight:600;text-align:center">
+<span style="display:flex;align-items:center;gap:10px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"></rect><path d="M3 10h18M7 15h3"></path></svg>Formas de pagamento: [PIX · CARTÃO · PARCELAMENTO EM ATÉ 00X]</span>
+<span>Demais tratamentos: valor definido após avaliação.</span>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section style="background:#F1F7FE;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:720px;margin:0 auto 56px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Depoimentos</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">O que nossos pacientes dizem.</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+
+<div class="card rv" style="flex:1 1 300px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div class="stars" style="display:flex;gap:4px;color:#1560BD">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+</div>
+<p style="font-size:16px;line-height:1.7;color:#08203E;flex:1">[Depoimento do paciente: copie aqui o comentário real recebido no Google ou no Instagram, com autorização de quem escreveu.]</p>
+<div style="display:flex;align-items:center;gap:14px">
+<span style="width:50px;height:50px;border-radius:50%;background:#CFE3FA;border:2px dashed #5E9BE0;color:#0B3C7A;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c.8-3.6 3.4-5.5 7-5.5s6.2 1.9 7 5.5"></path></svg></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:15px;color:#08203E">[Nome do paciente]</span><span style="font-size:13px;color:#44586F">[Tratamento realizado]</span></span>
+</div>
+</div>
+
+<div class="card rv" style="flex:1 1 300px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div class="stars" style="display:flex;gap:4px;color:#1560BD">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+</div>
+<p style="font-size:16px;line-height:1.7;color:#08203E;flex:1">[Depoimento do paciente: copie aqui o comentário real recebido no Google ou no Instagram, com autorização de quem escreveu.]</p>
+<div style="display:flex;align-items:center;gap:14px">
+<span style="width:50px;height:50px;border-radius:50%;background:#CFE3FA;border:2px dashed #5E9BE0;color:#0B3C7A;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c.8-3.6 3.4-5.5 7-5.5s6.2 1.9 7 5.5"></path></svg></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:15px;color:#08203E">[Nome do paciente]</span><span style="font-size:13px;color:#44586F">[Tratamento realizado]</span></span>
+</div>
+</div>
+
+<div class="card rv" style="flex:1 1 300px;background:#FFFFFF;border:1px solid #DCEBFB;border-radius:24px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div class="stars" style="display:flex;gap:4px;color:#1560BD">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><polygon points="12 2.5 14.8 8.7 21.5 9.3 16.4 13.8 18 20.5 12 17 6 20.5 7.6 13.8 2.5 9.3 9.2 8.7"></polygon></svg>
+</div>
+<p style="font-size:16px;line-height:1.7;color:#08203E;flex:1">[Depoimento do paciente: copie aqui o comentário real recebido no Google ou no Instagram, com autorização de quem escreveu.]</p>
+<div style="display:flex;align-items:center;gap:14px">
+<span style="width:50px;height:50px;border-radius:50%;background:#CFE3FA;border:2px dashed #5E9BE0;color:#0B3C7A;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c.8-3.6 3.4-5.5 7-5.5s6.2 1.9 7 5.5"></path></svg></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:15px;color:#08203E">[Nome do paciente]</span><span style="font-size:13px;color:#44586F">[Tratamento realizado]</span></span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONVÊNIOS -->
+<section style="background:#FFFFFF;padding:72px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:32px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;max-width:640px">
+<h2 style="font-size:clamp(24px,3vw,32px);line-height:1.2;font-weight:700;color:#08203E">Convênios e parcerias</h2>
+<p style="font-size:16px;line-height:1.7;color:#44586F">[Liste aqui os convênios atendidos ou remova esta seção.]</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;width:100%">
+<div style="flex:1 1 180px;max-width:220px;min-height:76px;background:#F1F7FE;border:2px dashed #8DB8E8;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#0B3C7A;font-weight:700;font-size:14px;text-align:center;padding:12px;box-sizing:border-box">[LOGO CONVÊNIO 1]</div>
+<div style="flex:1 1 180px;max-width:220px;min-height:76px;background:#F1F7FE;border:2px dashed #8DB8E8;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#0B3C7A;font-weight:700;font-size:14px;text-align:center;padding:12px;box-sizing:border-box">[LOGO CONVÊNIO 2]</div>
+<div style="flex:1 1 180px;max-width:220px;min-height:76px;background:#F1F7FE;border:2px dashed #8DB8E8;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#0B3C7A;font-weight:700;font-size:14px;text-align:center;padding:12px;box-sizing:border-box">[LOGO CONVÊNIO 3]</div>
+<div style="flex:1 1 180px;max-width:220px;min-height:76px;background:#F1F7FE;border:2px dashed #8DB8E8;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#0B3C7A;font-weight:700;font-size:14px;text-align:center;padding:12px;box-sizing:border-box">[LOGO CONVÊNIO 4]</div>
+<div style="flex:1 1 180px;max-width:220px;min-height:76px;background:#F1F7FE;border:2px dashed #8DB8E8;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#0B3C7A;font-weight:700;font-size:14px;text-align:center;padding:12px;box-sizing:border-box">[LOGO CONVÊNIO 5]</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#E6F1FD;padding:96px 0">
+<div style="max-width:860px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin:0 auto 48px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1560BD">Dúvidas frequentes</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#08203E">Perguntas e respostas.</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px" open="">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>Com que frequência devo ir ao dentista?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">Em geral, recomenda-se uma consulta de rotina a cada seis meses, mas o intervalo ideal é definido pelo dentista conforme as suas necessidades.</p>
+</details>
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>O que está incluído na primeira consulta?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">[Descreva aqui o que a primeira consulta inclui: exame clínico, radiografias, plano de tratamento, orientações etc.]</p>
+</details>
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>O clareamento dental causa sensibilidade?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">Algumas pessoas sentem sensibilidade temporária. Por isso, fazemos uma avaliação antes e escolhemos o método e o acompanhamento mais adequados para você.</p>
+</details>
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>Vocês atendem crianças?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">[Informe a partir de qual idade a clínica atende e como é o atendimento infantil.]</p>
+</details>
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>Quais são as formas de pagamento e os convênios?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">[Informe PIX, cartões, parcelamento e convênios aceitos.]</p>
+</details>
+
+<details style="background:#FFFFFF;border:1px solid #CFE3FA;border-radius:18px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-weight:700;font-size:17px;color:#08203E;min-height:44px"><span>Como agendo e posso remarcar?</span><svg class="i faq-ic" viewBox="0 0 24 24" aria-hidden="true" style="color:#1560BD"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="padding:0 24px 22px;font-size:16px;line-height:1.7;color:#44586F">Você agenda pelo formulário deste site, pelo WhatsApp ou por telefone. Em caso de imprevisto, avise com antecedência de [PRAZO] para remarcarmos o seu horário.</p>
+</details>
+
+</div>
+</div>
+</section>
+
+<!-- AGENDAMENTO E CONTATO -->
+<section id="agendar" style="background:#0B3C7A;padding:96px 0;position:relative;overflow:hidden;isolation:isolate">
+<svg class="i drift" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;z-index:-1;right:-70px;bottom:-50px;width:380px;height:380px;color:#9CCBFB;opacity:.1;stroke-width:.6"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg>
+<svg class="i drift" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;z-index:-1;left:-60px;top:30px;width:260px;height:260px;color:#9CCBFB;opacity:.1;stroke-width:.6;animation-delay:-7s"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg>
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-start;gap:56px">
+<div style="flex:1 1 400px;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9CCBFB">Agendamento</span>
+<h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:700;color:#FFFFFF">Agende a sua avaliação.</h2>
+<p style="font-size:17px;line-height:1.7;color:#DCEBFB">Preencha o formulário ou fale diretamente com a nossa equipe.</p>
+<div style="display:flex;flex-direction:column;gap:18px;width:100%;margin-top:8px">
+<div style="display:flex;align-items:flex-start;gap:14px;color:#FFFFFF"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">Endereço</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[RUA, Nº — BAIRRO, CIDADE/UF · CEP]</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px;color:#FFFFFF"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">WhatsApp e telefone</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[(00) 00000-0000]</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px;color:#FFFFFF"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3 7l9 6 9-6"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">E-mail</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[contato@seudominio.com.br]</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px;color:#FFFFFF"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">Horário de atendimento</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[Seg a Sex, 00h às 00h · Sáb, 00h às 00h]</span></span></div>
+<div style="display:flex;align-items:flex-start;gap:14px;color:#FFFFFF"><span style="width:44px;height:44px;border-radius:14px;background:#1560BD;display:flex;align-items:center;justify-content:center;flex:none"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.8"></circle></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">Instagram</span><span style="font-size:15px;line-height:1.6;color:#DCEBFB">[@seuperfil]</span></span></div>
+</div>
+<div style="background:#0F2F57;border:2px dashed #5BA6F5;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFE3FA;text-align:center;padding:20px;min-height:200px;width:100%;box-sizing:border-box;margin-top:8px">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+<div style="font-weight:700;font-size:14px">[ MAPA DO GOOGLE MAPS ]</div>
+<div style="font-size:12px">Cole aqui o mapa com o endereço da clínica</div>
+</div>
+</div>
+
+<div style="flex:1 1 400px;background:#FFFFFF;border-radius:28px;padding:36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:24px;color:#08203E">Solicite o seu horário</h3>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">Nome completo<input type="text" placeholder="Seu nome" style="width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E"></label>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<label style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">WhatsApp<input type="tel" placeholder="(00) 00000-0000" style="width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E"></label>
+<label style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">E-mail<input type="email" placeholder="voce@email.com" style="width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E"></label>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<label style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">Tratamento de interesse<select style="width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E"><option>Avaliação / consulta</option><option>Limpeza e prevenção</option><option>Clareamento dental</option><option>Ortodontia</option><option>Implantes dentários</option><option>Lentes e facetas</option><option>Endodontia (canal)</option><option>Odontopediatria</option><option>Cirurgia oral</option><option>Harmonização orofacial</option><option>Outro</option></select></label>
+<label style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">Melhor período<select style="width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E"><option>Sem preferência</option><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label>
+</div>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#08203E">Mensagem (opcional)<textarea rows="4" placeholder="Conte brevemente o que você precisa" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1.5px solid #B7D3F3;border-radius:12px;background:#F8FBFF;font-family:inherit;font-size:16px;color:#08203E;resize:vertical"></textarea></label>
+<button type="button" style="min-height:54px;border:0;border-radius:999px;background:#1560BD;color:#FFFFFF;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer">Enviar pedido de agendamento</button>
+<p style="font-size:13px;line-height:1.6;color:#44586F;text-align:center">Entraremos em contato para confirmar o seu horário.</p>
+</div>
+</div>
+</section>
+
+<!-- RODAPÉ -->
+<footer style="background:#061A33;color:#B9D4F2;padding:72px 0 32px">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;gap:40px 56px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.14)">
+<div style="flex:2 1 300px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px;color:#FFFFFF">
+<span style="width:46px;height:46px;border-radius:50%;background:#1560BD;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px"><path d="M12 6.5c-1.2-1.3-2.5-2-4.1-2C5.6 4.5 4 6.3 4 8.7c0 1.8.7 3 1.2 4.4.6 1.7.5 3.6 1 5.2.3 1 1.3 1.4 2 .7.9-.9 1-2.6 1.6-3.7.4-.7 1.1-1.1 2.2-1.1s1.8.4 2.2 1.1c.6 1.1.7 2.8 1.6 3.7.7.7 1.7.3 2-.7.5-1.6.4-3.5 1-5.2.5-1.4 1.2-2.6 1.2-4.4 0-2.4-1.6-4.2-3.9-4.2-1.6 0-2.9.7-4.1 2z"></path></svg></span>
+<span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px">[NOME DA CLÍNICA]</span>
+</div>
+<p style="font-size:15px;line-height:1.7;max-width:340px">[Uma frase curta sobre a clínica e o seu compromisso com os pacientes.]</p>
+</div>
+<div style="flex:1 1 160px;display:flex;flex-direction:column;gap:12px;font-size:15px">
+<span style="font-weight:700;color:#FFFFFF;font-size:15px">Navegação</span>
+<a href="#sobre" style="color:#B9D4F2">Sobre</a>
+<a href="#tratamentos" style="color:#B9D4F2">Tratamentos</a>
+<a href="#equipe" style="color:#B9D4F2">Equipe</a>
+<a href="#resultados" style="color:#B9D4F2">Resultados</a>
+<a href="#valores" style="color:#B9D4F2">Valores</a>
+<a href="#faq" style="color:#B9D4F2">Dúvidas</a>
+</div>
+<div style="flex:1 1 220px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6">
+<span style="font-weight:700;color:#FFFFFF;font-size:15px">Contato</span>
+<span>[(00) 00000-0000]</span>
+<span>[contato@seudominio.com.br]</span>
+<span>[RUA, Nº — BAIRRO, CIDADE/UF]</span>
+<span>[@seuperfil]</span>
+</div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6">
+<span style="font-weight:700;color:#FFFFFF;font-size:15px">Horários</span>
+<span>[Seg a Sex, 00h às 00h]</span>
+<span>[Sábado, 00h às 00h]</span>
+<a href="#agendar" style="display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;background:#1560BD;color:#FFFFFF;font-weight:700;font-size:15px;align-self:flex-start;margin-top:6px">Agendar consulta</a>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:28px;font-size:13px;line-height:1.6">
+<span>© [ANO] [NOME DA CLÍNICA]. Todos os direitos reservados.</span>
+<span>Responsável técnico: [Dr./Dra. NOME COMPLETO] · [CRO-UF 00000]</span>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
